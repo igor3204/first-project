@@ -1,9 +1,9 @@
 import asyncio
 import logging
 
-from handlers import router
+from app.handlers import router
 from aiogram import Bot, Dispatcher
-from utils import get_config
+from app.utils import get_config
 
 
 async def main():

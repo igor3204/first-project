@@ -2,12 +2,14 @@ from aiogram import F, Router
 from aiogram.filters import CommandStart, Command
 from aiogram.types import Message
 
+from app.keybord import main
+
 router = Router()
 
 
 @router.message(CommandStart())
 async def cmd_start(message: Message):
-    await message.answer("g")
+    await message.reply("s", reply_markup=main)
 
 
 @router.message(Command("help"))
