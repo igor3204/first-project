@@ -30,5 +30,7 @@ async def suck_dick_minet(message: Message):
 
 @router.callback_query(F.data == "my_dick_size")
 async def get_size_my_dick(callback_data: CallbackQuery):
-    dick_size = random.randint(1, 100)
-    await callback_data.message.answer(f"Твой размер члена: {dick_size} см")
+    dick_size = random.randint(5, 14)
+    await callback_data.message.answer(
+        f"Твой размер члена: {dick_size} см, не расстраивайся, размер не главное!"
+    )
