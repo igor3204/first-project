@@ -9,8 +9,8 @@ from dotenv import load_dotenv
 
 
 def connection_email():
-    mail_pass = "ylkp pevn grkh zzuz"
-    username = "terremokvasi@gmail.com"
+    mail_pass = 
+    username = 
     imap_server = "imap.gmail.com"
     imap = imaplib.IMAP4_SSL(imap_server)
     imap.login(username, mail_pass)
