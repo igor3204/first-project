@@ -5,9 +5,15 @@ import config
 
 
 def connection_email():
+<<<<<<< HEAD:app/functions.py
     mail_pass = config.mail_pass
     username = config.username
     imap_server = config.imap_server
+=======
+    mail_pass = 
+    username = 
+    imap_server = "imap.gmail.com"
+>>>>>>> 44d2b81c48e889e3a9b06692b4b24ff9befcfc17:app/mail_functions.py
     imap = imaplib.IMAP4_SSL(imap_server)
     imap.login(username, mail_pass)
     status, result = imap.login(username, mail_pass)
