@@ -1,21 +1,24 @@
 import os
 import asyncio
 import logging
-import app.mail_functions as kb
 import sys
+import functions
+import config
 
 from app.handlers import router
 from aiogram import Bot, Dispatcher
-from dotenv import load_dotenv
+
+
+async def get_mail_letter():
+    imap = functions.connection_email()
+    if not imap:
+        sys.exit()
+    else:
+        functions.get_topic()
 
 
 async def main():
-    load_dotenv()
-    imap = kb.connection_email()
-    if not imap:
-        sys.exit()
-
-    bot = Bot(token=os.getenv("TOKEN"))
+    bot = Bot(token=config.token)
     dp = Dispatcher()
     dp.include_router(router)
     await dp.start_polling(bot)

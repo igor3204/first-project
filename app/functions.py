@@ -1,29 +1,24 @@
 import imaplib
 import email
 from email.header import decode_header
-import base64
-from bs4 import BeautifulSoup
-import re
-import os
-from dotenv import load_dotenv
+import config
 
 
 def connection_email():
-    mail_pass = "ylkp pevn grkh zzuz"
-    username = "terremokvasi@gmail.com"
-    imap_server = "imap.gmail.com"
+    mail_pass = config.mail_pass
+    username = config.username
+    imap_server = config.imap_server
     imap = imaplib.IMAP4_SSL(imap_server)
     imap.login(username, mail_pass)
-    sts, result = imap.login(username, mail_pass)
-    if sts == "OK":
+    status, result = imap.login(username, mail_pass)
+    if status == "OK":
         return imap
     else:
         return False
 
 
-def fet_topic():
-    load_dotenv()
-    imap_server = os.getenv("IMAP_SERVER")
+def get_topic():
+    imap_server = config.imap_server
     imap = imaplib.IMAP4_SSL(imap_server)
     imap.select("INBOX")
     status, data = imap.search(None, "ALL")
